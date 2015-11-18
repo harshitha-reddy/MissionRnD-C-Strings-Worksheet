@@ -12,15 +12,20 @@ NOTES: Don't create new string.
 */
 #include<Stdio.h>
 char removeSpaces(char *str) {
-	int i = 0;
-	if (str == NULL)
-		return '\0';
-	while (str[i] != '\0')
-	{
-		if (str[i] != ' ')
-			printf("%c", str[i]);
-		i++;
-	}
-	return 0;
 	
+	int i, j;
+	if ((str == NULL) || (str == '\0'))
+		return '\0';
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] == ' ')
+		{
+			for (j = i; str[j]; j++)
+				str[j] = str[j + 1];
+			i--;
+		}
+	}
+	return *str;
 }
+
+	

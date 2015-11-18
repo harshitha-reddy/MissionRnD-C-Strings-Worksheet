@@ -21,5 +21,6 @@ char removeSpaces(char *str) {
 			printf("%c", str[i]);
 		i++;
 	}
+	return 0;
 	
 }

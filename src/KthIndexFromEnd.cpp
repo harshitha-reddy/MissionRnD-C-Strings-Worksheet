@@ -10,21 +10,28 @@ ERROR CASES: Return '\0' for invalid inputs.
 
 NOTES:
 */
-#include<string.h>
+#include<stdio.h>
+int xstrlen(char *p);
 char KthIndexFromEnd(char *str, int K) {
-	//return '\0';
-	int i, len;
-	len = strlen(str);
-	strrev(str);
-	if ((K<0) || (K>len) || (str == NULL))
+		int len;
+		len = xstrlen(str);
+		if ((K<0) || (K>len) || (str == '\0')||(str[K]=='\0'))
 		return '\0';
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (i == K)
-			return str[i];
-
+		else
+			return str[len - K - 1];
 	}
-	//return 0;
-
-	//return '\0';
+int xstrlen(char *p)
+{
+	int l = 0;
+	if (p != NULL)
+	{
+		while (*p != '\0')
+		{
+			l++;
+			p++;
+		}
+		return(l);
+	}
+	else
+		return NULL;
 }
